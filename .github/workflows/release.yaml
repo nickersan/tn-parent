@@ -1,0 +1,51 @@
+name: release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      packages: write
+
+    concurrency:
+      group: "release"
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Release
+        env:
+          GITHUB_USERNAME: ${{ github.username }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+        run: |
+          git config --global user.name "nickersan"
+          git config --global user.email "nick.holt@btinternet.com"
+          mvn -Dusername=$GITHUB_USERNAME -Dpassword=$WORKFLOW_TOKEN -Drelease.version=${{ github.event.release.tag_name }} --batch-mode release:prepare release:perform
+
+      - name: Create PR to merge to develop
+        run: gh pr create --base develop
+        env:
+          GH_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+
+      - name: Auto-merge PR
+        run: gh pr merge --merge --auto
+        env:
+          GH_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
