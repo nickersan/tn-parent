@@ -19,5 +19,4 @@ jobs:
       - uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.WORKFLOW_TOKEN }}
-          release-type: maven
           target-branch: main
