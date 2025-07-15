@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 (2025-07-15)
+
+
+### Features
+
+* initial check-in. ([c1ffa35](https://github.com/nickersan/tn-parent/commit/c1ffa35e8fedb9323ce40f0f26e1f3aee10aad84))
+* initial check-in. ([94dde26](https://github.com/nickersan/tn-parent/commit/94dde26c5dab24f97a00a30cac2311f86f6b96fb))
+
 ## 1.0.0 (2025-07-14)
 
 
