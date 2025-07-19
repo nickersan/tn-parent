@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/nickersan/tn-parent/compare/v1.0.0...v1.0.1) (2025-07-19)
+
+
+### Bug Fixes
+
+* fixing version numbers for tn libs. ([#4](https://github.com/nickersan/tn-parent/issues/4)) ([946f8c2](https://github.com/nickersan/tn-parent/commit/946f8c2ad1cbda5c76b422b276450a1b6d61f59b))
+
 ## 1.0.0 (2025-07-15)
 
 
