@@ -78,55 +78,55 @@
       <dependency>
         <groupId>com.tn</groupId>
         <artifactId>tn-lang</artifactId>
-        <version>1.0.00</version>
+        <version>1.0.0</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.client</groupId>
         <artifactId>tn-client-feign</artifactId>
-        <version>1.0.00</version>
+        <version>1.0.0</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.query</groupId>
         <artifactId>tn-query</artifactId>
-        <version>1.0.00</version>
+        <version>1.0.0</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.query</groupId>
         <artifactId>tn-query-java</artifactId>
-        <version>1.0.00</version>
+        <version>1.0.0</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.query</groupId>
         <artifactId>tn-query-jdbc</artifactId>
-        <version>1.0.00</version>
+        <version>1.0.0</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.query</groupId>
         <artifactId>tn-query-jpa</artifactId>
-        <version>1.0.00</version>
+        <version>1.0.0</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.service</groupId>
         <artifactId>tn-service</artifactId>
-        <version>1.0.00</version>
+        <version>1.0.0</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.service.data</groupId>
         <artifactId>tn-data-service</artifactId>
-        <version>1.0.00</version>
+        <version>1.0.0</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.service.data</groupId>
         <artifactId>tn-data-service-jpa</artifactId>
-        <version>1.0.00</version>
+        <version>1.0.0</version>
       </dependency>
 
       <!-- 3rd party -->
