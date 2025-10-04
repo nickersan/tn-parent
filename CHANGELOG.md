@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/nickersan/tn-parent/compare/v1.0.0...v1.1.0) (2025-10-04)
+
+
+### Features
+
+* bumping dependencies to release versions pre-release. ([ff635b3](https://github.com/nickersan/tn-parent/commit/ff635b3d2a96d5d4f63ded258881c4e30bf4107a))
+* bumping dependencies to release versions pre-release. ([3837710](https://github.com/nickersan/tn-parent/commit/38377102151d706281b760f4de9f8cddb1a5716b))
+
 ## 1.0.0 (2025-07-15)
 
 
