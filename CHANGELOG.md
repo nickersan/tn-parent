@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/nickersan/tn-parent/compare/v1.1.0...v2.0.0) (2026-03-06)
+
+
+### Features
+
+* Adding version pluging, bumped to Java 25 and updating dependencies. ([#7](https://github.com/nickersan/tn-parent/issues/7)) ([8c9afe5](https://github.com/nickersan/tn-parent/commit/8c9afe562bc7d33e788430c62f3f7eb4f39cac30))
+
+
+### Miscellaneous Chores
+
+* bumping version number for release 2.0.0 ([#9](https://github.com/nickersan/tn-parent/issues/9)) ([1b39146](https://github.com/nickersan/tn-parent/commit/1b39146780b83c55c2f1f608db4332b00e3c4ef6))
+
 ## [1.1.0](https://github.com/nickersan/tn-parent/compare/v1.0.0...v1.1.0) (2025-10-04)
 
 
