@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/nickersan/tn-parent/compare/v2.0.0...v2.1.0) (2026-03-07)
+
+
+### Features
+
+* Release 2.1.0 ([#12](https://github.com/nickersan/tn-parent/issues/12)) ([797bd94](https://github.com/nickersan/tn-parent/commit/797bd943c5bd82f4d5a386115db6125996603f5f))
+
 ## [2.0.0](https://github.com/nickersan/tn-parent/compare/v1.1.0...v2.0.0) (2026-03-06)
 
 
