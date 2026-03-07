@@ -1,3 +1,8 @@
 @echo off
 
-git commit --allow-empty -m "chore: release 0.0.1" -m "Release-As: 0.0.1"
+if "%1"=="" (
+    echo No version provided.
+    exit /b 1
+)
+
+git commit --allow-empty -m "chore: release %1" -m "Release-As: %1"
