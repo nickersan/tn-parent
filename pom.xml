@@ -702,7 +702,7 @@
     </profile>
 
     <profile>
-      <id>contract-producer</id>
+      <id>contract-producer-groovy</id>
       <activation>
         <file>
           <exists>src/ct/resources/contracts</exists>
@@ -718,6 +718,30 @@
             <configuration>
               <packageWithBaseClasses>${contract-producer.base-class.package}</packageWithBaseClasses>
               <contractsDirectory>src/ct/resources/contracts</contractsDirectory>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>contract-producer-java</id>
+      <activation>
+        <file>
+          <exists>src/ct/java/contracts</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+            <version>${spring-cloud.version}</version>
+            <extensions>true</extensions>
+            <configuration>
+              <testFramework>JUNIT5</testFramework>
+              <packageWithBaseClasses>${contract-producer.base-class.package}</packageWithBaseClasses>
+              <contractsDirectory>src/ct/java/contracts</contractsDirectory>
             </configuration>
           </plugin>
         </plugins>
