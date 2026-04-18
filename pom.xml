@@ -24,6 +24,8 @@
 
     <docker-image-repository>${project.name}</docker-image-repository>
 
+    <tn-service.version>1.0.1-SNAPSHOT</tn-service.version>
+
     <flyway.version>12.0.3</flyway.version>
     <guava.version>33.5.0-jre</guava.version>
     <junit.version>6.0.3</junit.version>
@@ -32,7 +34,7 @@
     <!-- CORS issue with newer version -->
     <!-- <spring-boot.version>3.3.5</spring-boot.version> -->
 <!--    <spring.version>6.2.5</spring.version>-->
-    <spring-boot.version>3.5.11</spring-boot.version>
+    <spring-boot.version>4.0.5</spring-boot.version>
     <spring-cloud.version>5.0.2</spring-cloud.version>
   </properties>
 
@@ -124,7 +126,15 @@
       <dependency>
         <groupId>com.tn.service</groupId>
         <artifactId>tn-service</artifactId>
-        <version>1.0.0</version>
+        <version>${tn-service.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.tn.service</groupId>
+        <artifactId>tn-service</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+        <type>test-jar</type>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
@@ -158,8 +168,14 @@
 
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>2.21</version>
+      </dependency>
+
+      <dependency>
+        <groupId>tools.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.21.1</version>
+        <version>3.1.2</version>
       </dependency>
 
       <dependency>
@@ -277,6 +293,19 @@
 
       <dependency>
         <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-restclient</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-resttestclient</artifactId>
+        <version>${spring-boot.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-actuator</artifactId>
         <version>${spring-boot.version}</version>
         <!--        <exclusions>-->
@@ -346,6 +375,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
         <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-contract-spec</artifactId>
+        <version>${spring-cloud.version}</version>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
@@ -513,6 +549,13 @@
           <excludes>
             <exclude>**/*IntegrationTest.java</exclude>
           </excludes>
+          <systemProperties>
+            <!-- setting temp directory to avoid issue with multiple disks on Windows -->
+            <property>
+              <name>java.io.tmpdir</name>
+              <value>X:\mvn-tmp</value>
+            </property>
+          </systemProperties>
         </configuration>
         <executions>
           <execution>
@@ -702,7 +745,7 @@
     </profile>
 
     <profile>
-      <id>contract-producer-groovy</id>
+      <id>contracts-producer-groovy</id>
       <activation>
         <file>
           <exists>src/ct/resources/contracts</exists>
@@ -725,7 +768,7 @@
     </profile>
 
     <profile>
-      <id>contract-producer-java</id>
+      <id>contracts-producer-java</id>
       <activation>
         <file>
           <exists>src/ct/java/contracts</exists>
@@ -740,9 +783,19 @@
             <extensions>true</extensions>
             <configuration>
               <testFramework>JUNIT5</testFramework>
-              <packageWithBaseClasses>${contract-producer.base-class.package}</packageWithBaseClasses>
+              <baseClassForTests>${contract-producer.base-class.tests}</baseClassForTests>
+              <basePackageForTests >${contract-producer.base-package.tests}</basePackageForTests>
+              <packageWithBaseClasses>${contract-producer.base-package.tests}</packageWithBaseClasses>
               <contractsDirectory>src/ct/java/contracts</contractsDirectory>
             </configuration>
+            <dependencies>
+              <dependency>
+                <groupId>com.tn.service</groupId>
+                <artifactId>tn-service</artifactId>
+                <version>${tn-service.version}</version>
+                <type>test-jar</type>
+              </dependency>
+            </dependencies>
           </plugin>
         </plugins>
       </build>
