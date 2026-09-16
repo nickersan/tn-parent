@@ -542,6 +542,9 @@
           <release>${maven.compiler.release}</release>
           <executable>${maven.compiler.executable}</executable>
           <encoding>UTF-8</encoding>
+          <!-- required for Spring MVC to bind @PathVariable/@RequestParam by name via
+               reflection when no explicit name is given on the annotation -->
+          <parameters>true</parameters>
           <annotationProcessorPaths>
             <path>
               <groupId>org.projectlombok</groupId>
