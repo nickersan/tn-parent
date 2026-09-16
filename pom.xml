@@ -218,6 +218,12 @@
       </dependency>
 
       <dependency>
+        <groupId>io.hypersistence</groupId>
+        <artifactId>hypersistence-utils-hibernate-71</artifactId>
+        <version>3.15.5</version>
+      </dependency>
+
+      <dependency>
         <groupId>io.jsonwebtoken</groupId>
         <artifactId>jjwt-api</artifactId>
         <version>${jsonwebtoken.version}</version>
@@ -235,6 +241,12 @@
         <artifactId>jjwt-jackson</artifactId>
         <version>${jsonwebtoken.version}</version>
         <scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>net.logstash.logback</groupId>
+        <artifactId>logstash-logback-encoder</artifactId>
+        <version>9.0</version>
       </dependency>
 
       <dependency>
@@ -277,7 +289,7 @@
       <dependency>
         <groupId>org.springdoc</groupId>
         <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-        <version>3.0.1</version>
+        <version>3.1.1</version>
       </dependency>
 
       <dependency>
@@ -391,6 +403,13 @@
       </dependency>
 
       <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-testcontainers</artifactId>
+        <version>${spring-boot.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-contract-spec</artifactId>
         <version>${spring-cloud.version}</version>
@@ -441,6 +460,13 @@
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-openfeign</artifactId>
         <version>${spring-cloud.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>1.21.4</version>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
