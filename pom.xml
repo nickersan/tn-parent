@@ -173,6 +173,16 @@
         <version>2.21</version>
       </dependency>
 
+      <!-- Jackson 2, kept for actuator's legacy /actuator endpoint support and other
+           libraries (e.g. jjwt-jackson) that haven't moved to Jackson 3 (tools.jackson.core)
+           yet; without an explicit pin here, jjwt-jackson pulls in a much older
+           jackson-databind transitively, incompatible with jackson-annotations above. -->
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.21.6</version>
+      </dependency>
+
       <dependency>
         <groupId>tools.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
@@ -318,6 +328,13 @@
 
       <dependency>
         <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-data-jpa-test</artifactId>
+        <version>${spring-boot.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-resttestclient</artifactId>
         <version>${spring-boot.version}</version>
         <scope>test</scope>
@@ -326,6 +343,12 @@
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-flyway</artifactId>
         <version>${spring-boot.version}</version>
       </dependency>
 
