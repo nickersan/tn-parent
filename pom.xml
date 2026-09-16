@@ -846,8 +846,7 @@
             <configuration>
               <testFramework>JUNIT5</testFramework>
               <baseClassForTests>${contract-producer.base-class.tests}</baseClassForTests>
-              <basePackageForTests >${contract-producer.base-package.tests}</basePackageForTests>
-              <packageWithBaseClasses>${contract-producer.base-package.tests}</packageWithBaseClasses>
+              <basePackageForTests>${contract-producer.base-package.tests}</basePackageForTests>
               <contractsDirectory>src/ct/java/contracts</contractsDirectory>
             </configuration>
             <dependencies>
