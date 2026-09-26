@@ -233,6 +233,20 @@
         <version>3.15.5</version>
       </dependency>
 
+      <!-- must match the hibernate-core version spring-boot-dependencies ${spring-boot.version} manages -->
+      <dependency>
+        <groupId>org.hibernate.orm</groupId>
+        <artifactId>hibernate-envers</artifactId>
+        <version>7.2.7.Final</version>
+      </dependency>
+
+      <!-- must match the spring-data-jpa version spring-boot-dependencies ${spring-boot.version} manages -->
+      <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-envers</artifactId>
+        <version>4.0.4</version>
+      </dependency>
+
       <dependency>
         <groupId>io.jsonwebtoken</groupId>
         <artifactId>jjwt-api</artifactId>
