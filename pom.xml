@@ -518,17 +518,21 @@
         <filtering>true</filtering>
       </resource>
 
-      <resource>
+    </resources>
+
+    <testResources>
+
+      <testResource>
         <directory>src/test/resources</directory>
         <filtering>true</filtering>
-      </resource>
+      </testResource>
 
-      <resource>
+      <testResource>
         <directory>src/it/resources</directory>
         <filtering>true</filtering>
-      </resource>
+      </testResource>
 
-    </resources>
+    </testResources>
 
     <plugins>
 
