@@ -247,6 +247,14 @@
         <version>4.0.4</version>
       </dependency>
 
+      <!-- Spring Data's web support (Pageable resolution, PagedModel) for services without
+           persistence, e.g. a BFF; brings spring-data-commons with it -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-data-commons</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
       <dependency>
         <groupId>io.jsonwebtoken</groupId>
         <artifactId>jjwt-api</artifactId>
