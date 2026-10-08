@@ -24,7 +24,12 @@
 
     <docker-image-repository>${project.name}</docker-image-repository>
 
+    <!-- the tn libraries' next releases, set ahead of releasing them: see nickersan/actions -->
+    <tn-lang.version>1.3.1</tn-lang.version>
     <tn-service.version>2.0.0</tn-service.version>
+    <tn-data-service.version>2.0.0</tn-data-service.version>
+    <tn-data-service-jdbc.version>2.0.0</tn-data-service-jdbc.version>
+    <tn-data-service-jpa.version>2.0.0</tn-data-service-jpa.version>
 
     <test.tmpdir>${java.io.tmpdir}</test.tmpdir>
 
@@ -93,7 +98,7 @@
       <dependency>
         <groupId>com.tn</groupId>
         <artifactId>tn-lang</artifactId>
-        <version>1.3.0</version>
+        <version>${tn-lang.version}</version>
       </dependency>
 
       <dependency>
@@ -143,19 +148,25 @@
       <dependency>
         <groupId>com.tn.service.data</groupId>
         <artifactId>tn-data-service</artifactId>
-        <version>1.0.0</version>
+        <version>${tn-data-service.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.tn.service.data</groupId>
+        <artifactId>tn-data-service-jdbc</artifactId>
+        <version>${tn-data-service-jdbc.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.service.data</groupId>
         <artifactId>tn-data-service-jpa</artifactId>
-        <version>1.0.0</version>
+        <version>${tn-data-service-jpa.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.tn.service.data</groupId>
         <artifactId>tn-data-service-jpa</artifactId>
-        <version>1.1.0</version>
+        <version>${tn-data-service-jpa.version}</version>
         <type>test-jar</type>
         <scope>test</scope>
       </dependency>
