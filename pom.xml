@@ -35,8 +35,8 @@
     <!-- CORS issue with newer version -->
     <!-- <spring-boot.version>3.3.5</spring-boot.version> -->
 <!--    <spring.version>6.2.5</spring.version>-->
-    <spring-boot.version>4.1.1</spring-boot.version>
-    <spring-cloud.version>5.0.3</spring-cloud.version>
+    <spring-boot.version>4.1.2</spring-boot.version>
+    <spring-cloud.version>5.0.4</spring-cloud.version>
   </properties>
 
   <dependencies>
@@ -92,7 +92,7 @@
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
-        <version>1.6.5</version>
+        <version>1.6.6</version>
       </dependency>
 
       <dependency>
@@ -165,14 +165,14 @@
       <dependency>
         <groupId>org.hibernate.orm</groupId>
         <artifactId>hibernate-envers</artifactId>
-        <version>7.4.13.Final</version>
+        <version>7.4.14.Final</version>
       </dependency>
 
       <!-- must match the spring-data-jpa version spring-boot-dependencies ${spring-boot.version} manages -->
       <dependency>
         <groupId>org.springframework.data</groupId>
         <artifactId>spring-data-envers</artifactId>
-        <version>4.1.1</version>
+        <version>4.1.2</version>
       </dependency>
 
       <!-- Spring Data's web support (Pageable resolution, PagedModel) for services without
@@ -249,7 +249,7 @@
       <dependency>
         <groupId>org.springdoc</groupId>
         <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-        <version>3.1.1</version>
+        <version>3.2.0</version>
       </dependency>
 
       <dependency>
@@ -533,7 +533,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>3.6.0</version>
+        <version>3.6.1</version>
         <executions>
           <execution>
             <goals>
@@ -563,7 +563,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.6.0</version>
+        <version>3.6.1</version>
         <configuration>
           <excludes>
             <exclude>**/*IntegrationTest.java</exclude>
@@ -675,7 +675,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.15</version>
+        <version>0.8.16</version>
         <configuration>
           <excludes>
             <exclude>**/Application.class</exclude>
