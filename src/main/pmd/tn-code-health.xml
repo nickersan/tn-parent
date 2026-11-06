@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!-- The PMD rules the code-health profile (mvn -Pcode-health verify) runs, with the limits okayat-dashboard reads. It is shipped in the
+     tn-parent-pmd-rules jar that tn-parent attaches to its release, and the profile finds it there. -->
+<ruleset name="tn code health"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+  <description>Complexity, which is where a class becomes hard to change.</description>
+
+  <!-- A method is over its limit at a cyclomatic complexity of 10 (the default). A class's total is only the sum of its methods, so it says how big the
+       class is, not how complex: its limit is raised from 80 to 150, so that a service with many small methods is not reported for having many. -->
+  <rule ref="category/java/design.xml/CyclomaticComplexity">
+    <properties>
+      <property name="classReportLevel" value="150"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/design.xml/CognitiveComplexity"/>
+  <rule ref="category/java/design.xml/NPathComplexity"/>
+  <rule ref="category/java/design.xml/NcssCount"/>
+
+  <!-- Its limits are fixed, so a class that is deliberately many things at once says so with @SuppressWarnings("PMD.GodClass") and why. -->
+  <rule ref="category/java/design.xml/GodClass"/>
+
+</ruleset>

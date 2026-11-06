@@ -610,6 +610,18 @@
               <goal>test-jar</goal>
             </goals>
           </execution>
+          <execution>
+            <id>pmd-rules</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>pmd-rules</classifier>
+              <classesDirectory>src/main/pmd</classesDirectory>
+              <skipIfEmpty>true</skipIfEmpty>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
 
@@ -765,16 +777,21 @@
             <version>3.28.0</version>
             <configuration>
               <targetJdk>${maven.compiler.release}</targetJdk>
-              <!-- The plugin runs the whole category; the dashboard reads only its complexity rules (CyclomaticComplexity, CognitiveComplexity,
-                   NPathComplexity, GodClass, NcssCount) and leaves the rest of design.xml alone. -->
+              <!-- Only the complexity rules, with their limits, from the jar tn-parent attaches to its release (src/main/pmd/tn-code-health.xml) -->
               <rulesets>
-                <ruleset>category/java/design.xml</ruleset>
+                <ruleset>tn-code-health.xml</ruleset>
               </rulesets>
               <format>xml</format>
               <printFailingErrors>false</printFailingErrors>
               <minimumTokens>100</minimumTokens>
             </configuration>
             <dependencies>
+              <dependency>
+                <groupId>com.tn</groupId>
+                <artifactId>tn-parent</artifactId>
+                <version>${project.parent.version}</version>
+                <classifier>pmd-rules</classifier>
+              </dependency>
               <!-- the newest PMD, as the plugin's own lags the Java release -->
               <dependency>
                 <groupId>net.sourceforge.pmd</groupId>
