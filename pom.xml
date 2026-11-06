@@ -732,6 +732,76 @@
 
   <profiles>
 
+    <!-- Static analysis for the code-health dashboard (okayat-dashboard). Report only: it never fails a build, and is off unless asked for
+         with `mvn -Pcode-health verify`. Reports: target/spotbugsXml.xml, target/pmd.xml (complexity), target/cpd.xml (duplication).
+         Once the baseline is clean, move the thresholds into check goals to hold it. -->
+    <profile>
+      <id>code-health</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-maven-plugin</artifactId>
+            <version>4.10.5.0</version>
+            <configuration>
+              <effort>Max</effort>
+              <threshold>Medium</threshold>
+              <xmlOutput>true</xmlOutput>
+              <failOnError>false</failOnError>
+            </configuration>
+            <executions>
+              <execution>
+                <id>spotbugs</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>spotbugs</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>3.28.0</version>
+            <configuration>
+              <targetJdk>${maven.compiler.release}</targetJdk>
+              <!-- The plugin runs the whole category; the dashboard reads only its complexity rules (CyclomaticComplexity, CognitiveComplexity,
+                   NPathComplexity, GodClass, NcssCount) and leaves the rest of design.xml alone. -->
+              <rulesets>
+                <ruleset>category/java/design.xml</ruleset>
+              </rulesets>
+              <format>xml</format>
+              <printFailingErrors>false</printFailingErrors>
+              <minimumTokens>100</minimumTokens>
+            </configuration>
+            <dependencies>
+              <!-- the newest PMD, as the plugin's own lags the Java release -->
+              <dependency>
+                <groupId>net.sourceforge.pmd</groupId>
+                <artifactId>pmd-core</artifactId>
+                <version>7.29.0</version>
+              </dependency>
+              <dependency>
+                <groupId>net.sourceforge.pmd</groupId>
+                <artifactId>pmd-java</artifactId>
+                <version>7.29.0</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <id>pmd</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>pmd</goal>
+                  <goal>cpd</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
     <profile>
       <id>assembly</id>
       <activation>
