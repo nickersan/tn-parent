@@ -12,7 +12,7 @@ In addition to the usual features provided by Maven, `tn-parent` adds the follow
 * integration test separation via a `src/it` directory, so that fast running unit tests can be run in isolation to typically slower integration tests.
 * contracts test separation via a `src/ct` directory, so that fast running unit tests can be run in isolation to typically slower contracts tests.
 * [JaCoCo](https://www.jacoco.org/index.html) coverage reports, which are generated with every `test` run.
-* [Pitest](https://pitest.org/) mutation tests, that can be optionally run by adding `-Dpitest` to the Maven command.
+* [Pitest](https://pitest.org/) mutation tests, that can be optionally run by adding `-Dpitest` to the Maven command. Mutated classes and their tests are limited to the `pitest.target-packages` property, which defaults to `com.tn.*`; projects in other packages set it in their own `<properties>`.
 
 ### Build
 
